@@ -38,7 +38,7 @@
         secret (:secret params)
         key-fn (:key-fn params remove-stupid-characters)
         params (dissoc params :secret :key-fn)
-        params (assoc params :api_sig (sign params secret))]
+        params (if secret (assoc params :api_sig (sign params secret)) params)]
     (-> (http/request {:url *api*
                        :method http-method
                        :query-params (when (= :get http-method) params)
