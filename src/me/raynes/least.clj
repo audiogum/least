@@ -17,7 +17,7 @@
 (defn ^:private sign
   [params secret]
   (md5
-   (str (->> (for [[k v] (dissoc params :format) 
+   (str (->> (for [[k v] (dissoc params :format)
                    :when v]
                [(name k) v])
              (sort-by first)
@@ -57,4 +57,3 @@
    You can also pass in a :key-fn param that is passed to cheshire's decode function."
   [method key & [params]]
   (req method key :post params))
-
