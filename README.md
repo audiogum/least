@@ -24,7 +24,7 @@ nil
 Now let's make a simple request. Let's see what I've been listening to.
 
 ```clojure
-user> (least/read "user.getRecentTracks" "REDACTED" {:limit 2 :user "RaynesFM"})
+user> (least/read "user.getRecentTracks" "REDACTED API KEY" {:limit 2 :user "RaynesFM"})
 {:recenttracks
  {:track
   [{:artist
@@ -138,7 +138,7 @@ song by Fall Out Boy. In fact, you could say I **love** it! Let's tell last.fm
 about this discovery:
 
 ```clojure
-user> (least/write "track.love" "REDACTED" {:secret "REDACTED" :sk (:key session) :track "The Phoenix" :artist "Fall Out Boy"})
+user> (least/write "track.love" "REDACTED API KEY" {:secret "REDACTED" :sk (:key session) :track "The Phoenix" :artist "Fall Out Boy"})
 {:status "ok"}
 ```
 
